@@ -8,7 +8,7 @@ SENSOR_MAP[PMIC]="4"
 SENSOR_MAP[Thermal]="5"
 
 function PrintUsage() {
-  echo "Usage: snmp_extend.sh sensor -g OID"
+  echo "Usage: snmp_extend.sh SENSOR -g OID"
 }
 
 if [[ "$2" = "-g" ]]; then

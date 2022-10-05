@@ -15,12 +15,12 @@ function PrintUsage() {
 
 if [[ "$2" = "-g" ]]; then
   if [[ "$1" = "IP" ]]; then
-    IP=$(ip a show dev $PPPOE_DEV | grep inet | xargs | cut -d ' ' -f2)
+    IP=$(ip a show dev $PPPOE_DEV scope global | grep inet | xargs | cut -d ' ' -f2)
     echo "$3"
     echo string
     echo "$IP"
   elif [[ "$1" = "IPV6" ]]; then
-    IPV6=$(ip a show dev $PPPOE_DEV | grep inet6 | xargs | cut -d ' ' -f2 | grep -o -E '^[^\/]*')
+    IPV6=$(ip a show dev $PPPOE_DEV scope global | grep inet6 | xargs | cut -d ' ' -f2 | grep -o -E '^[^\/]*')
     echo "$3"
     echo string
     echo "$IPV6"
